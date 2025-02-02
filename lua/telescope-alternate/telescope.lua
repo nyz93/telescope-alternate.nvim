@@ -19,7 +19,7 @@ function M.alternate(alt_opts)
 
   local results = alternate.find_alternatve_files() or {}
 
-  if #results == 1 and results[1].type == "switch" then
+  if #results == 1 and results[1].type == "switch" and vim.g.telescope_open_only_one_with ~= "never" then
     alternate.go_to_selection(results[1], vim.g.telescope_open_only_one_with)
   elseif #results > 0 then
     local biggest = 0
